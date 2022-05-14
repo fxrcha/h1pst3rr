@@ -1,0 +1,22 @@
+{
+  "name": "h1pst3rr",
+  "version": "1.0.0",
+  "description": "Simple typescript tool tells your Apple Music library score with Pitchfork.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "tsc && node dist/index.js"
+  },
+  "repository": "git+https://github.com/fxrcha/h1pst3rr.git",
+  "author": "hyuncha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fxrcha/h1pst3rr/issues"
+  },
+  "homepage": "https://github.com/fxrcha/h1pst3rr#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "chalk": "^5.0.1"
+  }
+}
