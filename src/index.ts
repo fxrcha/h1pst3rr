@@ -1,3 +1,5 @@
-import chalk from 'chalk';
+import HipsterInstance from "./instance";
 
-console.log(chalk.bold('H1PST3RRR'));
+const app = new HipsterInstance();
+
+app.run();
