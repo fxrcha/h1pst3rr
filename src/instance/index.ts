@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import figlet from 'figlet';
 
-import reqHTTP from '../util/request';
+import search from '../pitchfork';
 
 class HipsterInstance {
     constructor() {
@@ -27,7 +27,7 @@ class HipsterInstance {
 
         });
 
-
+        //search("My Beautiful Dark Twisted Fantasy", "Kanye West");
 
     }
 }
