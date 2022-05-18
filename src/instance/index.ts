@@ -1,6 +1,8 @@
 import chalk from 'chalk';
 import figlet from 'figlet';
 
+import reqHTTP from '../util/request';
+
 class HipsterInstance {
     constructor() {
 
