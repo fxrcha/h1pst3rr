@@ -1,3 +1,1 @@
-interface Recent {
-
-}
+interface Recent {}
