@@ -4,8 +4,9 @@ import figlet from 'figlet';
 import search from '../pitchfork';
 
 class HipsterInstance {
+    private API: any;
     constructor() {
-
+        this.API = ''; // implemented as Apple Music or Spotify API class later
     }
 
     public run() {
