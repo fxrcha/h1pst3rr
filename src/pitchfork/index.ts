@@ -3,29 +3,51 @@ import cheerio from 'cheerio';
 import { AlbumReview, TrackReview } from '../interface/pitchfork';
 import reqHTTP from '../util/request';
 
-const loadTrackReview = (body: string) => {
-  console.log('wow... a track');
+const loadTrackReview = async (body: any): Promise<TrackReview> => {
+  const resp = await reqHTTP('GET', body['url']);
+  const $ = cheerio.load(resp.data);
+
+  const obj: TrackReview = {
+    track_name: '',
+    artist_name: '',
+    abstract_detail: '',
+    released_date: '',
+    best_new_track: false,
+  };
+
+  return obj;
 };
 
-const loadAlbumReview = (body: string) => {
-  console.log('wow... an album ');
+const loadAlbumReview = async (body: any): Promise<AlbumReview> => {
+  const resp = await reqHTTP('GET', body['url']);
+  const $ = cheerio.load(resp.data);
+
+  const obj: AlbumReview = {
+    album_name: '',
+    artist_name: '',
+    abstract_detail: '',
+    released_date: '',
+    score: '',
+    best_new_album: false,
+  };
+
+  return obj;
 };
 
 const search = async (album: string, artist: string) => {
   const searchResp = await reqHTTP('GET', 'http://pitchfork.com/search', {
     query: `${album} - ${artist}`,
   });
+
   const parsed = JSON.parse(
     searchResp.data.split('window.App=')[1].split(';</script>')[0]
   )['context']['dispatcher']['stores']['SearchStore']['results'];
 
-  console.log(parsed['albumreviews']);
-
-  if (Object.keys(parsed['albumreviews']).length > 0) {
-    return loadAlbumReview(parsed);
+  if (parsed['albumreviews']['count'] > 0) {
+    return await loadAlbumReview(parsed['albumreviews']['items'][0]);
   }
 
-  return loadTrackReview(parsed); // early return
+  return await loadTrackReview(parsed['tracks']['items'][0]); // early return
 };
 
 export default search;

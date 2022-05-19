@@ -37,8 +37,8 @@ class HipsterInstance {
   public async run() {
     this.print_text();
 
-    await search('My Beautiful Dark Twisted Fantasy', 'Kanye West');
-    await search('The Heart Part 5', 'Kendrick Lamar');
+    await search('My Beautiful Dark Twisted Fantasy', 'Kanye West'); // should be returned as AlbumReview
+    await search('The Heart Part 5', 'Kendrick Lamar'); // should be returned as TrackReview
   }
 }
 
