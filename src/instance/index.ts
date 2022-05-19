@@ -9,7 +9,7 @@ class HipsterInstance {
         this.API = ''; // implemented as Apple Music or Spotify API class later
     }
 
-    public run() {
+    public async run() {
         figlet.text('HIPST3RR', {
             font: 'Slant',
             horizontalLayout: 'default',
@@ -28,7 +28,7 @@ class HipsterInstance {
 
         });
 
-        //search("My Beautiful Dark Twisted Fantasy", "Kanye West");
+        await search("My Beautiful Dark Twisted Fantasy", "Kanye West");
 
     }
 }
