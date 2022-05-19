@@ -8,7 +8,8 @@ const reqHTTP = async (method: string, url: string, params?: any) => {
     return await axios({
         method: method,
         url: url,
-        params: params
+        params: params,
+        headers: defaultHeader
     })
 };
 

@@ -9,7 +9,7 @@ class HipsterInstance {
         this.API = ''; // implemented as Apple Music or Spotify API class later
     }
 
-    public async run() {
+    private print_text() {
         figlet.text('HIPST3RR', {
             font: 'Slant',
             horizontalLayout: 'default',
@@ -27,8 +27,13 @@ class HipsterInstance {
             console.log(chalk.cyan('Scores your Apple Music history with Pitchfork'));
 
         });
+    }
+
+    public async run() {
+        this.print_text();
 
         await search("My Beautiful Dark Twisted Fantasy", "Kanye West");
+        await search("The Heart Part 5", "Kendrick Lamar");
 
     }
 }
