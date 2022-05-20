@@ -2,6 +2,7 @@ import cheerio from 'cheerio';
 
 import { AlbumReview, TrackReview } from '../interface/pitchfork';
 import reqHTTP from '../util/request';
+import filterAlbum from '../util/filter';
 
 const loadTrackReview = async (body: any): Promise<TrackReview> => {
   const resp = await reqHTTP('GET', body['url']);
@@ -36,7 +37,7 @@ const loadAlbumReview = async (body: any): Promise<AlbumReview> => {
 
 const search = async (album: string, artist: string) => {
   const searchResp = await reqHTTP('GET', 'http://pitchfork.com/search', {
-    query: `${album} - ${artist}`,
+    query: `${filterAlbum(album)} - ${artist}`,
   });
 
   const parsed = JSON.parse(
